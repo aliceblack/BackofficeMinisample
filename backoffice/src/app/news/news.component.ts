@@ -31,10 +31,9 @@ export class NewsComponent implements OnInit {
   totalPageCount;
   getPosts(pageNumber, pageSize){
     this.backendService.getNewsPage(pageNumber, pageSize).then(news => {
-      let head = news.headers.toJSON();
-      let count = head["x-total-count"];
-      this.totalPageCount=Math.ceil(count/pageSize);
-      this.news=news.json();
+      let count = news.headers.get("x-total-count");
+      this.totalPageCount=Math.ceil(Number(count)/pageSize);
+      this.news=news.body;
       this.disableNextPage();
       this.disablePreviousPage();
     }).catch(()=>{

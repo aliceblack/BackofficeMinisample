@@ -42,7 +42,7 @@ export class EditorComponent implements OnInit {
   content;
   getPost(postId){
     this.backendService.getPost(postId).then(post => {
-      let p = post.json();
+      let p = post.body;
       this.id=p["id"];
       this.title=p["title"];
       this.category=p["category"];
@@ -56,7 +56,7 @@ export class EditorComponent implements OnInit {
   categories;
   getCategories(){
     this.backendService.getCategories().then(c=>{
-      this.categories=c.json();
+      this.categories=c.body;
     }).catch(()=>{
       this.notifierService.notify("Error", "There was an error getting the categories");    
     });

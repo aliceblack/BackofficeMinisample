@@ -2,7 +2,7 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { Http, RequestOptions, Headers, Response } from '@angular/http';
 import { NotifierService } from 'angular-notifier';
 import { NotifierModule } from 'angular-notifier';
-import { HttpModule } from '@angular/http';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { AppRoutingModule } from './../app-routing.module';
 import { EditorComponent } from './../editor/editor.component';
@@ -15,13 +15,13 @@ describe('NewsComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       imports: [
-        NotifierModule, HttpModule, AppRoutingModule, FormsModule
+        NotifierModule, AppRoutingModule, FormsModule, HttpClientModule
       ],
       declarations: [ 
         NewsComponent, EditorComponent
       ],
       providers: [
-        NotifierService, 
+        NotifierService,
       ]
     })
     .compileComponents();

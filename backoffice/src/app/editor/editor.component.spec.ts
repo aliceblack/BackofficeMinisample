@@ -1,7 +1,8 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { FormsModule } from '@angular/forms';
 import { NotifierModule } from 'angular-notifier';
-import { HttpModule } from '@angular/http';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
+
 import { AppRoutingModule } from './../app-routing.module';
 import { NewsComponent } from './../news/news.component';
 
@@ -13,7 +14,7 @@ describe('EditorComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      imports: [FormsModule, NotifierModule, HttpModule, AppRoutingModule],
+      imports: [FormsModule, NotifierModule, HttpClientModule, AppRoutingModule],
       declarations: [ EditorComponent, NewsComponent ]
     })
     .compileComponents();
@@ -57,8 +58,6 @@ describe('EditorComponent', () => {
     expect(compiled.querySelector('#titleInput').textContent).toBe('');
   });
 
- 
-
   it('should render category selection', () => {
     const fixture = TestBed.createComponent(EditorComponent);
     fixture.detectChanges();
@@ -76,14 +75,11 @@ describe('EditorComponent', () => {
   });
 
 
-
   it('should render content text area input', () => {
     const fixture = TestBed.createComponent(EditorComponent);
     fixture.detectChanges();
     const compiled = fixture.debugElement.nativeElement;
     expect(compiled.querySelector('#contentTextArea').textContent).toBe('');
   });
-
-
 
 });

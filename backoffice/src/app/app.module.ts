@@ -5,7 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NewsComponent } from './news/news.component';
 import { EditorComponent } from './editor/editor.component';
-import { HttpModule } from '@angular/http';
+import { HttpClientModule } from '@angular/common/http';
 import { BackendService } from './backend.service';
 import { FormsModule } from '@angular/forms';
 import { NotifierModule } from 'angular-notifier';
@@ -18,7 +18,7 @@ import { NotifierModule } from 'angular-notifier';
   ],
   imports: [
     NotifierModule,
-    HttpModule,
+    HttpClientModule,
     BrowserModule,
     AppRoutingModule,
     FormsModule

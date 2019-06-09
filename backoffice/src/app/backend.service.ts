@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment';
-import { Http, RequestOptions, Headers, Response } from '@angular/http';
-import { Title } from '@angular/platform-browser';
+import { HttpClient } from '@angular/common/http';
+import { tap } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
@@ -10,7 +10,7 @@ export class BackendService {
 
   host;
 
-  constructor(private http: Http) { 
+  constructor(private http: HttpClient) { 
     this.setHost();
   }
 
@@ -19,24 +19,18 @@ export class BackendService {
   }
 
   get(url){
-      const headers = new Headers();
-      const options = new RequestOptions({ headers: headers });
-      return this.http.get(url, options)
-      .toPromise()
+    return this.http.get(url,{ observe: 'response' }).pipe(tap(res => {
+    })).toPromise();  
   }
 
   post(url, payload){
-      const headers = new Headers();
-      const options = new RequestOptions({ headers: headers });
-      return this.http.post(url, payload, options)
-      .toPromise()
+      return this.http.post(url, payload).pipe(tap(res => {
+      })).toPromise();  
   }
 
   patch(url, payload){
-    const headers = new Headers();
-    const options = new RequestOptions({ headers: headers });
-    return this.http.patch(url, payload, options)
-    .toPromise()
+    return this.http.patch(url, payload).pipe(tap(res => {
+    })).toPromise();  
   }
 
   getNews(){
