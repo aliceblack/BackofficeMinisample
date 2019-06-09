@@ -1,0 +1,45 @@
+<div class="container">
+      
+    <div class="row">
+        <h3> Post </h3>
+    </div>
+
+    <div class="form-group">
+      <label for="titleInput">Title </label>
+      <input type="text" class="form-control" [(ngModel)]="title"  id="titleInput">
+    </div>
+
+    <div class="form-group">
+      <label for="categorySelection">Category </label>
+      <select  class="form-control form-control-lg" [(ngModel)]="category">
+        <option id="categorySelection" *ngFor="let category of categories">{{category.name}}</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label for="categorySelection">Status </label>
+      <select  class="form-control form-control-lg" [(ngModel)]="status">
+          <option id="categorySelection"  *ngFor="let s of statusList" ngDefaultControl>{{s}}</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label for="contentTextArea">Content </label>
+      <textarea class="form-control" id="contentTextArea" [(ngModel)]="content" rows="7"></textarea>
+    </div>
+
+    <div class="row">
+        <div class="col-sm"></div>
+        <div class="col-sm">
+            <button type="button" (click)="save()" class="btn btn-dark">Save</button>
+        </div>
+        <div class="col-sm">
+          <button type="button" (click)="back()" class="btn btn-dark">Back</button>
+        </div>
+    </div>
+
+</div>
+
+
+
+<notifier-container></notifier-container>

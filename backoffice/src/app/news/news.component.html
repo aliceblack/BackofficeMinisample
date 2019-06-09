@@ -1,0 +1,34 @@
+<div class="container">
+
+    <div class="row">
+      <h3> News </h3>
+    </div>
+
+
+  <div class="row">
+    <p><button type="button" (click)="newPost()" class="btn btn-dark">New</button></p>
+  </div>
+
+  <div class="row">
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">Title</th>
+            <th scope="col">Category</th>
+            <th scope="col">Status</th>
+            <th scope="col">Edit</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let post of news">
+            <td>{{post.title}}</td>
+            <td>{{post.category}}</td>
+            <td>{{post.status}}</td>
+            <td> <input (click)="edit($event, post)" type="image" src="https://cdn2.iconfinder.com/data/icons/freecns-cumulus/16/519584-081_Pen-512.png" height="20em"/> </td>
+          </tr>
+        </tbody>
+      </table>
+  </div>
+</div>
+
+

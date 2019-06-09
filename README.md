@@ -1,4 +1,5 @@
 # BackofficeMinisample
+Mini sample app with Angular.
 
 ## Tools
 Tools used:
@@ -6,6 +7,7 @@ Tools used:
 * Angular cli v8.0.2
 * JsonServer v0.15.0
 * Bootstrap v4
+* Angular-notifier 4.1.1
 
 ```
 npm install -g @angular/cli
@@ -13,17 +15,18 @@ npm install -g json-server
 ```
 
 ## Setup
-/backoffice:
+Frontend /backoffice:
 ```
 npm i
 ng serve
 ```
-/server:
+Backend /server:
 ```
 json-server --watch db.json
 ```
+
 ## Pages
-Db items are press articles.
+Database items are press articles.
 
 Gui requirements:
 * page one, 3 columns table listing db items: title, category and status (bubblished, not pubblished)
@@ -31,4 +34,4 @@ Gui requirements:
 
 Categories are a predefined list taken from the backend.
 Status can be "pubblished" or "not pubblished".
-Backend is simulated whith json-server.
+Backend is simulated whit json-server.
