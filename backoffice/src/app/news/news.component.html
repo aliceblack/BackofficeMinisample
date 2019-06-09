@@ -29,6 +29,14 @@
         </tbody>
       </table>
   </div>
+
+  <div class="row">
+      <div class="col-sm"></div>
+      <div class="col-sm">
+          <button  type="button" [disabled]="previosIsDisabled" (click)="loadPreviousPosts()" class="btn btn-dark">Previous</button>
+      </div>
+      <div class="col-sm">
+          <button  type="button" [disabled]="nextIsDisabled" (click)="loadNextPosts()" class="btn btn-dark">Next</button>
+      </div>
+  </div>
 </div>
-
-

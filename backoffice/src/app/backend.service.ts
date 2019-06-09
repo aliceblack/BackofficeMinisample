@@ -44,10 +44,10 @@ export class BackendService {
     return this.get(url);
   }
 
-  /*getNewsPage(pageNumber, pageSize){
+  getNewsPage(pageNumber, pageSize){
     let url = this.host+'/posts/?_page='+pageNumber+'&_limit='+pageSize;
     return this.get(url);
-  }*/
+  }
 
   getPost(postId){
     let url = this.host+'/posts/'+postId;

@@ -13,18 +13,58 @@ export class NewsComponent implements OnInit {
   constructor(private notifierService: NotifierService, private backendService: BackendService, private router: Router) { }
 
   ngOnInit() {
-    this.getNews();
+    this.getInitialPosts();
   }
 
   news;
 
-  getNews(){
-    this.backendService.getNews().then(news => {
+  previosIsDisabled=true;
+  nextIsDisabled=false;
+
+disableNextPage(){
+  this.currentPage == this.totalPageCount ? this.nextIsDisabled=true : this.nextIsDisabled=false;
+}
+
+disablePreviousPage(){
+  this.currentPage == 1 ? this.previosIsDisabled=true : this.previosIsDisabled=false;
+}
+
+  loadPreviousPosts(){
+    if(this.currentPage > 1){
+      this.currentPage=this.currentPage-1;
+      this.getPosts(this.currentPage, this.pageSize)
+    }
+  }
+
+  loadNextPosts(){
+    if(this.currentPage < this.totalPageCount) {
+      this.currentPage=this.currentPage+1;
+      this.getPosts(this.currentPage, this.pageSize)
+    }
+  }
+
+  currentPage=1;
+  totalPageCount;
+  pageSize=5;
+  getInitialPosts(){
+    let pageNumber=1;
+    let pageSize = this.pageSize;
+    this.getPosts(pageNumber,pageSize);
+  }
+  
+  getPosts(pageNumber, pageSize){
+    this.backendService.getNewsPage(pageNumber, pageSize).then(news => {
+      let head = news.headers.toJSON();
+      let count = head["x-total-count"];
+      this.totalPageCount=Math.ceil(count/pageSize);
       this.news=news.json();
+      this.disableNextPage();
+      this.disablePreviousPage();
     }).catch(()=>{
       this.notifierService.notify("Error", "Error getting the news");    
     });
   }
+
 
 
   edit(event, post){
