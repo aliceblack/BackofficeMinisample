@@ -29,6 +29,7 @@ export class EditorComponent implements OnInit {
     this.getPost(postId);
     this.saveAction="edit";
   }
+  
   createNewPost(){
     this.saveAction="new";
   }
