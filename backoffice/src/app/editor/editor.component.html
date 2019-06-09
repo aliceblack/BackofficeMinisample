@@ -17,9 +17,9 @@
     </div>
 
     <div class="form-group">
-      <label for="categorySelection">Status </label>
+      <label for="statusSelection">Status </label>
       <select  class="form-control form-control-lg" [(ngModel)]="status">
-          <option id="categorySelection"  *ngFor="let s of statusList" ngDefaultControl>{{s}}</option>
+          <option id="statusSelection"  *ngFor="let s of statusList" ngDefaultControl>{{s}}</option>
       </select>
     </div>
 
@@ -31,10 +31,10 @@
     <div class="row">
         <div class="col-sm"></div>
         <div class="col-sm">
-            <button type="button" (click)="save()" class="btn btn-dark">Save</button>
+            <button type="button" id="buttonSave" (click)="save()" class="btn btn-dark">Save</button>
         </div>
         <div class="col-sm">
-          <button type="button" (click)="back()" class="btn btn-dark">Back</button>
+          <button type="button" id="buttonBack" (click)="back()" class="btn btn-dark">Back</button>
         </div>
     </div>
 
