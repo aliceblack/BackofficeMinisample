@@ -15,11 +15,22 @@ npm install -g json-server
 ```
 
 ## Setup
+/backoffice:
+```
+npm i
+npm start
+```
+
+Npm start will run both json server and angular dev server usig 
+> json-server --watch ../server/db.json  | ng serve"
+
+#### Otherwise
 Frontend /backoffice:
 ```
 npm i
 ng serve
 ```
+
 Backend /server:
 ```
 json-server --watch db.json

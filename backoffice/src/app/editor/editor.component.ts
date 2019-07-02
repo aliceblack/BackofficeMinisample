@@ -10,19 +10,18 @@ import { NotifierService } from 'angular-notifier';
   styleUrls: ['./editor.component.css']
 })
 export class EditorComponent implements OnInit {
-  constructor(private notifierService: NotifierService , private backendService: BackendService, private router: Router, private route: ActivatedRoute) { }
+  constructor(private notifierService: NotifierService , private backendService: BackendService, private router: Router, private route: ActivatedRoute) {
+   }
 
   saveAction;
   ngOnInit() {
-    this.route.queryParams.subscribe(params => {
-      let postId = params["id"];
-      if(postId){
-        this.editExistingPost(postId);
-      }else{
-        this.createNewPost();
-      }
-      this.getCategories();
-    });
+    let postId = history.state.id
+    if(postId){
+      this.editExistingPost(postId);
+    }else{
+      this.createNewPost();
+    }
+    this.getCategories();
   }
 
   editExistingPost(postId){

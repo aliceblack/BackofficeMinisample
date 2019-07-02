@@ -65,7 +65,7 @@ export class NewsComponent implements OnInit {
 
   edit(event, post){
     const navigationExtras: NavigationExtras = { 
-      queryParams: {
+      state: {
         "id": post.id
       }
     };
