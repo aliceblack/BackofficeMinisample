@@ -46,3 +46,6 @@ Gui requirements:
 Categories are a predefined list taken from the backend.
 Status can be "pubblished" or "not pubblished".
 Backend is simulated whit json-server.
+
+![list.jpg](list.jpg)
+![edit.jpg](edit.jpg)
